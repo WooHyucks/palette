@@ -1,0 +1,2187 @@
+{
+  "version": "0.3.0",
+  "note": "54개 팔레트 신규 큐레이션. 75:20:5는 시각적 면적 휴리스틱이며 채도/대비/타이포/이미지까지 포함해 적용. 업종별 효과는 검증되지 않은 디자인 가설. 색상 역할을 의미 기반으로 분리하여 대비 검증 필수.",
+  "categories": [
+    {
+      "id": "food",
+      "name": "식음료",
+      "subcategories": [
+        {
+          "id": "cafe",
+          "name": "카페"
+        },
+        {
+          "id": "restaurant",
+          "name": "음식점"
+        },
+        {
+          "id": "bakery",
+          "name": "베이커리"
+        },
+        {
+          "id": "dessert",
+          "name": "디저트"
+        },
+        {
+          "id": "bar",
+          "name": "바·펍"
+        },
+        {
+          "id": "brunch",
+          "name": "브런치"
+        }
+      ],
+      "template": "store"
+    },
+    {
+      "id": "commerce",
+      "name": "쇼핑·커머스",
+      "subcategories": [
+        {
+          "id": "fashion",
+          "name": "패션"
+        },
+        {
+          "id": "beauty-products",
+          "name": "뷰티 제품"
+        },
+        {
+          "id": "lifestyle",
+          "name": "라이프스타일"
+        },
+        {
+          "id": "goods",
+          "name": "잡화"
+        },
+        {
+          "id": "jewelry",
+          "name": "주얼리"
+        },
+        {
+          "id": "pet",
+          "name": "반려동물 용품"
+        }
+      ],
+      "template": "commerce"
+    },
+    {
+      "id": "wellness",
+      "name": "뷰티·웰니스",
+      "subcategories": [
+        {
+          "id": "salon",
+          "name": "미용실"
+        },
+        {
+          "id": "nail",
+          "name": "네일숍"
+        },
+        {
+          "id": "skin",
+          "name": "피부관리"
+        },
+        {
+          "id": "pilates",
+          "name": "필라테스"
+        },
+        {
+          "id": "yoga",
+          "name": "요가"
+        },
+        {
+          "id": "barbershop",
+          "name": "바버숍"
+        }
+      ],
+      "template": "booking"
+    },
+    {
+      "id": "professional",
+      "name": "의료·전문 서비스",
+      "subcategories": [
+        {
+          "id": "clinic",
+          "name": "의원"
+        },
+        {
+          "id": "dental",
+          "name": "치과"
+        },
+        {
+          "id": "tax",
+          "name": "세무사"
+        },
+        {
+          "id": "legal",
+          "name": "법률사무소"
+        },
+        {
+          "id": "veterinary",
+          "name": "동물병원"
+        },
+        {
+          "id": "consulting",
+          "name": "컨설팅"
+        }
+      ],
+      "template": "professional"
+    },
+    {
+      "id": "digital",
+      "name": "IT·디지털",
+      "subcategories": [
+        {
+          "id": "saas",
+          "name": "SaaS"
+        },
+        {
+          "id": "app",
+          "name": "앱 서비스"
+        },
+        {
+          "id": "web",
+          "name": "웹 서비스"
+        },
+        {
+          "id": "portfolio",
+          "name": "개인 프로젝트"
+        },
+        {
+          "id": "ai-tool",
+          "name": "AI 도구"
+        },
+        {
+          "id": "agency",
+          "name": "디지털 에이전시"
+        }
+      ],
+      "template": "saas"
+    },
+    {
+      "id": "other",
+      "name": "기타",
+      "subcategories": [
+        {
+          "id": "education",
+          "name": "교육"
+        },
+        {
+          "id": "studio",
+          "name": "스튜디오"
+        },
+        {
+          "id": "craft",
+          "name": "공방"
+        },
+        {
+          "id": "other",
+          "name": "직접 입력"
+        },
+        {
+          "id": "photography",
+          "name": "사진관"
+        },
+        {
+          "id": "interior",
+          "name": "인테리어"
+        }
+      ],
+      "template": "general"
+    }
+  ],
+  "palettes": [
+    {
+      "id": "food-curated-01",
+      "categoryId": "food",
+      "name": "로스팅 아틀리에",
+      "impression": "깊고 따뜻한",
+      "colors": {
+        "base": "#F3EBDD",
+        "secondary": "#453126",
+        "accent": "#B46C3D",
+        "text": "#30241F",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "로스팅 원두를 연상시키는 다크 에스프레소와 구운 구리색. 메뉴와 원두 사진이 중심이 되도록 크림 여백을 넓게 둡니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "cafe",
+        "bakery"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.69,
+        "onSecondaryContrast": 12.21,
+        "onAccentContrast": 3.86
+      }
+    },
+    {
+      "id": "food-curated-02",
+      "categoryId": "food",
+      "name": "버터 하우스",
+      "impression": "포근하고 정겨운",
+      "colors": {
+        "base": "#FFF5DD",
+        "secondary": "#D8A968",
+        "accent": "#92512E",
+        "text": "#4B3022",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "버터 옐로의 부드러운 바탕에 구움과자 같은 캐러멜을 소량 사용해 베이커리의 온도를 표현합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "bakery",
+        "dessert"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.09,
+        "onSecondaryContrast": 7.34,
+        "onAccentContrast": 6.11
+      }
+    },
+    {
+      "id": "food-curated-03",
+      "categoryId": "food",
+      "name": "올리브 테이블",
+      "impression": "내추럴하고 정갈한",
+      "colors": {
+        "base": "#F2F0E5",
+        "secondary": "#5A6444",
+        "accent": "#B98047",
+        "text": "#2F3328",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "올리브 그린과 린넨 아이보리로 식재료의 자연스러운 인상을 만들고 황토색으로 행동 버튼을 구분합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "brunch",
+        "restaurant"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.3,
+        "onSecondaryContrast": 6.29,
+        "onAccentContrast": 4.68
+      }
+    },
+    {
+      "id": "food-curated-04",
+      "categoryId": "food",
+      "name": "토마토 클럽",
+      "impression": "경쾌하고 식욕 돋는",
+      "colors": {
+        "base": "#FFF5E9",
+        "secondary": "#244F46",
+        "accent": "#D84935",
+        "text": "#24332D",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "차분한 딥그린 위에 토마토 레드를 제한적으로 배치해 메뉴 사진과 주문 버튼에 시선을 모읍니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "restaurant",
+        "brunch"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.29,
+        "onSecondaryContrast": 9.2,
+        "onAccentContrast": 3.69
+      }
+    },
+    {
+      "id": "food-curated-05",
+      "categoryId": "food",
+      "name": "미드나잇 셀러",
+      "impression": "절제된 고급스러움",
+      "colors": {
+        "base": "#EDE7DC",
+        "secondary": "#272B2A",
+        "accent": "#9C673D",
+        "text": "#202322",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "밝은 석회색 배경과 거의 검정에 가까운 그린을 대비시키고 브론즈를 포인트로 활용합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "bar",
+        "restaurant"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.88,
+        "onSecondaryContrast": 14.33,
+        "onAccentContrast": 4.75
+      }
+    },
+    {
+      "id": "food-curated-06",
+      "categoryId": "food",
+      "name": "피스타치오 데이",
+      "impression": "산뜻하고 감각적인",
+      "colors": {
+        "base": "#F8F5E8",
+        "secondary": "#A6B78D",
+        "accent": "#D95F50",
+        "text": "#26392B",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "피스타치오 그린을 부드러운 면에 사용하고 코랄을 5%만 더해 밝은 디저트 브랜드를 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "dessert",
+        "cafe"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.29,
+        "onSecondaryContrast": 7.33,
+        "onAccentContrast": 4.27
+      }
+    },
+    {
+      "id": "food-curated-07",
+      "categoryId": "food",
+      "name": "블루 포셀린",
+      "impression": "깔끔하고 독특한",
+      "colors": {
+        "base": "#F7F5EE",
+        "secondary": "#355F88",
+        "accent": "#D6A45E",
+        "text": "#23334A",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "푸른 도자기와 바닐라 아이보리의 조합. 사진이 많은 카페에서도 컬러가 산만해지지 않도록 구성합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "cafe",
+        "brunch"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.71,
+        "onSecondaryContrast": 6.68,
+        "onAccentContrast": 6.99
+      }
+    },
+    {
+      "id": "food-curated-08",
+      "categoryId": "food",
+      "name": "체리 소다",
+      "impression": "레트로하고 발랄한",
+      "colors": {
+        "base": "#FFF0E7",
+        "secondary": "#7A3D48",
+        "accent": "#E1A74A",
+        "text": "#4A2930",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "체리 와인색과 머스터드의 빈티지 대비로 개성 있는 디저트 매장을 표현합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "dessert",
+        "bar"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.43,
+        "onSecondaryContrast": 8.11,
+        "onAccentContrast": 7.36
+      }
+    },
+    {
+      "id": "food-curated-09",
+      "categoryId": "food",
+      "name": "소금과 버터",
+      "impression": "미니멀하고 섬세한",
+      "colors": {
+        "base": "#F8F6F0",
+        "secondary": "#777267",
+        "accent": "#C06A4B",
+        "text": "#302D29",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "스톤 그레이를 구조색으로 사용하고 번트 코랄을 작은 포인트로 써 음식 사진을 돋보이게 합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "bakery",
+        "cafe"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.68,
+        "onSecondaryContrast": 4.79,
+        "onAccentContrast": 4.05
+      }
+    },
+    {
+      "id": "commerce-curated-01",
+      "categoryId": "commerce",
+      "name": "에디토리얼 블랙",
+      "impression": "모던하고 자신감 있는",
+      "colors": {
+        "base": "#F7F6F2",
+        "secondary": "#252525",
+        "accent": "#C96E4A",
+        "text": "#202020",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "패션 화보를 위한 넓은 오프화이트와 블랙 타이포, 작은 러스트 포인트로 편집숍 분위기를 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "fashion",
+        "jewelry"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 15.07,
+        "onSecondaryContrast": 15.33,
+        "onAccentContrast": 4.36
+      }
+    },
+    {
+      "id": "commerce-curated-02",
+      "categoryId": "commerce",
+      "name": "실크 앤 로즈",
+      "impression": "우아하고 섬세한",
+      "colors": {
+        "base": "#F8F2EF",
+        "secondary": "#B69B98",
+        "accent": "#733F52",
+        "text": "#392B32",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "더스티 로즈를 절제해 사용하고 버건디로 주요 구매 행동을 강조합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "jewelry",
+        "beauty-products"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.1,
+        "onSecondaryContrast": 6.09,
+        "onAccentContrast": 8.2
+      }
+    },
+    {
+      "id": "commerce-curated-03",
+      "categoryId": "commerce",
+      "name": "코발트 에디션",
+      "impression": "선명하고 트렌디한",
+      "colors": {
+        "base": "#F8F8F4",
+        "secondary": "#294EC4",
+        "accent": "#E6B548",
+        "text": "#202744",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "코발트와 옐로의 선명한 대비를 소량만 사용해 상품 이미지에 활력을 줍니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "fashion",
+        "goods"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 13.74,
+        "onSecondaryContrast": 7.04,
+        "onAccentContrast": 8.29
+      }
+    },
+    {
+      "id": "commerce-curated-04",
+      "categoryId": "commerce",
+      "name": "아틀리에 샌드",
+      "impression": "내추럴하고 고급스러운",
+      "colors": {
+        "base": "#F3EEE4",
+        "secondary": "#8B7865",
+        "accent": "#3C5549",
+        "text": "#302D27",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "모래빛 중간톤과 포레스트 그린의 조합으로 소재감이 중요한 라이프스타일 제품에 적합합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "lifestyle",
+        "goods"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.87,
+        "onSecondaryContrast": 3.73,
+        "onAccentContrast": 8.12
+      }
+    },
+    {
+      "id": "commerce-curated-05",
+      "categoryId": "commerce",
+      "name": "라일락 오브제",
+      "impression": "부드럽고 창의적인",
+      "colors": {
+        "base": "#F8F5FB",
+        "secondary": "#A69AC8",
+        "accent": "#5B427F",
+        "text": "#2E263B",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "연보라를 넓은 보조 면에, 짙은 플럼을 작은 핵심 행동에 적용해 상품을 과하게 압도하지 않습니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "goods",
+        "beauty-products"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 13.35,
+        "onSecondaryContrast": 6.05,
+        "onAccentContrast": 8.3
+      }
+    },
+    {
+      "id": "commerce-curated-06",
+      "categoryId": "commerce",
+      "name": "시트러스 마켓",
+      "impression": "활기차고 친근한",
+      "colors": {
+        "base": "#FFF9E9",
+        "secondary": "#F1C86D",
+        "accent": "#27665E",
+        "text": "#28382F",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "레몬빛 크림과 차분한 청록으로 밝고 신뢰감 있는 소형 브랜드의 분위기를 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "pet",
+        "goods"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.77,
+        "onSecondaryContrast": 9.91,
+        "onAccentContrast": 6.67
+      }
+    },
+    {
+      "id": "commerce-curated-07",
+      "categoryId": "commerce",
+      "name": "버건디 아카이브",
+      "impression": "클래식하고 품격 있는",
+      "colors": {
+        "base": "#F5F0E9",
+        "secondary": "#6E2E3E",
+        "accent": "#BA9865",
+        "text": "#33262B",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "와인색을 보조 영역에 사용하고 샴페인 골드를 소량 배치해 클래식한 상품 전시에 어울립니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "jewelry",
+        "fashion"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.75,
+        "onSecondaryContrast": 9.89,
+        "onAccentContrast": 5.82
+      }
+    },
+    {
+      "id": "commerce-curated-08",
+      "categoryId": "commerce",
+      "name": "스카이 플레이",
+      "impression": "가볍고 산뜻한",
+      "colors": {
+        "base": "#F4F8FB",
+        "secondary": "#9CC8D9",
+        "accent": "#E16A52",
+        "text": "#263943",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "밝은 블루와 토마토 코랄로 생활용품과 반려동물 상품의 경쾌한 분위기를 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "pet",
+        "lifestyle"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.25,
+        "onSecondaryContrast": 8.75,
+        "onAccentContrast": 4.78
+      }
+    },
+    {
+      "id": "commerce-curated-09",
+      "categoryId": "commerce",
+      "name": "스톤 갤러리",
+      "impression": "차분하고 절제된",
+      "colors": {
+        "base": "#F5F4F0",
+        "secondary": "#9A9B94",
+        "accent": "#344B59",
+        "text": "#2B3033",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "중성적인 스톤과 잉크 블루로 상품 자체가 주인공이 되는 갤러리형 쇼핑 경험을 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "lifestyle",
+        "jewelry"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.13,
+        "onSecondaryContrast": 5.61,
+        "onAccentContrast": 9.14
+      }
+    },
+    {
+      "id": "wellness-curated-01",
+      "categoryId": "wellness",
+      "name": "세이지 리추얼",
+      "impression": "편안하고 자연스러운",
+      "colors": {
+        "base": "#F5F5EC",
+        "secondary": "#A2AE91",
+        "accent": "#45624E",
+        "text": "#29352C",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "세이지의 낮은 채도로 휴식감을 만들고 깊은 그린을 예약 버튼에 사용합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "skin",
+        "yoga"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.68,
+        "onSecondaryContrast": 6.74,
+        "onAccentContrast": 6.75
+      }
+    },
+    {
+      "id": "wellness-curated-02",
+      "categoryId": "wellness",
+      "name": "블러시 스튜디오",
+      "impression": "섬세하고 따뜻한",
+      "colors": {
+        "base": "#FBF3F0",
+        "secondary": "#D6A6A4",
+        "accent": "#854D58",
+        "text": "#3A2930",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "누드 핑크를 보조 면에 배치하고 로즈우드로 시선을 모아 섬세한 살롱 분위기를 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "nail",
+        "salon"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.46,
+        "onSecondaryContrast": 7.38,
+        "onAccentContrast": 6.56
+      }
+    },
+    {
+      "id": "wellness-curated-03",
+      "categoryId": "wellness",
+      "name": "모던 스파",
+      "impression": "고요하고 프리미엄한",
+      "colors": {
+        "base": "#F2F0EA",
+        "secondary": "#626D65",
+        "accent": "#B58A62",
+        "text": "#2C322D",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "스톤과 유칼립투스 톤을 절제해 고요한 공간감을 만들고 브론즈로 작은 디테일을 강조합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "skin",
+        "yoga"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.51,
+        "onSecondaryContrast": 5.39,
+        "onAccentContrast": 5.08
+      }
+    },
+    {
+      "id": "wellness-curated-04",
+      "categoryId": "wellness",
+      "name": "클린 아쿠아",
+      "impression": "맑고 청결한",
+      "colors": {
+        "base": "#F4FAF9",
+        "secondary": "#85B9B6",
+        "accent": "#216B72",
+        "text": "#244044",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "차분한 아쿠아톤과 딥틸로 깨끗한 인상을 구성하며 안내 정보의 가독성을 유지합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "skin",
+        "pilates"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 10.51,
+        "onSecondaryContrast": 7.2,
+        "onAccentContrast": 6.16
+      }
+    },
+    {
+      "id": "wellness-curated-05",
+      "categoryId": "wellness",
+      "name": "플럼 아뜰리에",
+      "impression": "감각적이고 개성 있는",
+      "colors": {
+        "base": "#F7F2F5",
+        "secondary": "#9C7B95",
+        "accent": "#603F5B",
+        "text": "#332A34",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "뮤트 플럼으로 감각적인 컬러를 제안하되 배경은 매우 밝게 유지합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "nail",
+        "salon"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.47,
+        "onSecondaryContrast": 4.26,
+        "onAccentContrast": 8.9
+      }
+    },
+    {
+      "id": "wellness-curated-06",
+      "categoryId": "wellness",
+      "name": "클레이 밸런스",
+      "impression": "건강하고 따뜻한",
+      "colors": {
+        "base": "#F7F2E9",
+        "secondary": "#C39C81",
+        "accent": "#6C5845",
+        "text": "#362D27",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "클레이와 오트 색상으로 따뜻한 움직임과 웰니스 라이프스타일을 표현합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "pilates",
+        "yoga"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.06,
+        "onSecondaryContrast": 6.29,
+        "onAccentContrast": 6.73
+      }
+    },
+    {
+      "id": "wellness-curated-07",
+      "categoryId": "wellness",
+      "name": "모노 바버",
+      "impression": "도시적이고 정교한",
+      "colors": {
+        "base": "#F4F3F0",
+        "secondary": "#3D4140",
+        "accent": "#A77B4C",
+        "text": "#262827",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "그라파이트와 앤티크 브라스로 정교한 그루밍 서비스를 강조합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "barbershop",
+        "salon"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 13.37,
+        "onSecondaryContrast": 10.35,
+        "onAccentContrast": 4.18
+      }
+    },
+    {
+      "id": "wellness-curated-08",
+      "categoryId": "wellness",
+      "name": "라벤더 에어",
+      "impression": "부드럽고 회복적인",
+      "colors": {
+        "base": "#F8F6FC",
+        "secondary": "#B8ACD4",
+        "accent": "#675B91",
+        "text": "#302C40",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "옅은 라벤더를 보조 면에, 잉크 바이올렛을 CTA에 배치해 과장되지 않은 차분함을 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "yoga",
+        "skin"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.55,
+        "onSecondaryContrast": 7.41,
+        "onAccentContrast": 6.03
+      }
+    },
+    {
+      "id": "wellness-curated-09",
+      "categoryId": "wellness",
+      "name": "시트린 무브",
+      "impression": "활기차고 건강한",
+      "colors": {
+        "base": "#FAF8EF",
+        "secondary": "#8A9C6D",
+        "accent": "#D77D3E",
+        "text": "#33392C",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "올리브와 번트 오렌지의 대비로 에너지 있는 웰니스 브랜드를 표현합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "pilates",
+        "yoga"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.2,
+        "onSecondaryContrast": 5.29,
+        "onAccentContrast": 5.16
+      }
+    },
+    {
+      "id": "professional-curated-01",
+      "categoryId": "professional",
+      "name": "네이비 클래리티",
+      "impression": "신뢰감 있고 정돈된",
+      "colors": {
+        "base": "#F5F7FA",
+        "secondary": "#314966",
+        "accent": "#A98257",
+        "text": "#253345",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "차분한 네이비를 구조색으로 사용하고 따뜻한 브론즈로 주요 상담 행동을 표시합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "legal",
+        "tax"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.94,
+        "onSecondaryContrast": 9.23,
+        "onAccentContrast": 4.51
+      }
+    },
+    {
+      "id": "professional-curated-02",
+      "categoryId": "professional",
+      "name": "클리니컬 틸",
+      "impression": "청결하고 차분한",
+      "colors": {
+        "base": "#F3F9F8",
+        "secondary": "#3B7775",
+        "accent": "#D29C68",
+        "text": "#233C3C",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "차가운 청록에 따뜻한 포인트를 더해 지나치게 차갑지 않은 안내 화면을 구성합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "clinic",
+        "dental"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.06,
+        "onSecondaryContrast": 5.15,
+        "onAccentContrast": 6.52
+      }
+    },
+    {
+      "id": "professional-curated-03",
+      "categoryId": "professional",
+      "name": "웜 프로페셔널",
+      "impression": "안정적이고 친근한",
+      "colors": {
+        "base": "#F8F6F1",
+        "secondary": "#7B817B",
+        "accent": "#48667D",
+        "text": "#303532",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "부드러운 웜그레이와 슬레이트 블루로 전문성을 유지하면서 부담을 줄입니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "tax",
+        "clinic"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.57,
+        "onSecondaryContrast": 3.95,
+        "onAccentContrast": 6.05
+      }
+    },
+    {
+      "id": "professional-curated-04",
+      "categoryId": "professional",
+      "name": "잉크 앤 아이보리",
+      "impression": "권위 있고 절제된",
+      "colors": {
+        "base": "#F5F2EB",
+        "secondary": "#27353D",
+        "accent": "#B19A72",
+        "text": "#273037",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "짙은 잉크색과 아이보리의 강한 위계로 전문 사무소의 정보 전달력을 높입니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "legal",
+        "tax"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.01,
+        "onSecondaryContrast": 12.63,
+        "onAccentContrast": 5.8
+      }
+    },
+    {
+      "id": "professional-curated-05",
+      "categoryId": "professional",
+      "name": "소프트 메디컬",
+      "impression": "맑고 편안한",
+      "colors": {
+        "base": "#F8FAF8",
+        "secondary": "#9BBDB2",
+        "accent": "#326D68",
+        "text": "#29403B",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "부드러운 민트와 깊은 청록을 조합해 밝고 읽기 쉬운 진료 안내 화면을 구성합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "clinic",
+        "dental"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 10.59,
+        "onSecondaryContrast": 7.73,
+        "onAccentContrast": 5.96
+      }
+    },
+    {
+      "id": "professional-curated-06",
+      "categoryId": "professional",
+      "name": "블루프린트",
+      "impression": "명료하고 현대적인",
+      "colors": {
+        "base": "#F5F8FC",
+        "secondary": "#4B76A5",
+        "accent": "#D2A16C",
+        "text": "#24364B",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "맑은 블루를 넓은 보조 면에 사용하고 따뜻한 포인트로 버튼을 구분합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "dental",
+        "clinic"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.57,
+        "onSecondaryContrast": 4.74,
+        "onAccentContrast": 6.78
+      }
+    },
+    {
+      "id": "professional-curated-07",
+      "categoryId": "professional",
+      "name": "딥 포레스트",
+      "impression": "차분하고 견고한",
+      "colors": {
+        "base": "#F5F6F0",
+        "secondary": "#375347",
+        "accent": "#B18D5E",
+        "text": "#27362D",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "포레스트 그린과 샌드 골드로 보수적이지 않으면서 안정적인 분위기를 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "legal",
+        "tax"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.7,
+        "onSecondaryContrast": 8.43,
+        "onAccentContrast": 5.13
+      }
+    },
+    {
+      "id": "professional-curated-08",
+      "categoryId": "professional",
+      "name": "페일 스톤",
+      "impression": "담백하고 전문적인",
+      "colors": {
+        "base": "#F7F7F4",
+        "secondary": "#A5ADB1",
+        "accent": "#31546A",
+        "text": "#29363E",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "라이트 스톤과 딥블루로 서류·정보가 많은 화면에서 시각적 피로를 줄입니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "tax",
+        "dental"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.57,
+        "onSecondaryContrast": 6.9,
+        "onAccentContrast": 8.06
+      }
+    },
+    {
+      "id": "professional-curated-09",
+      "categoryId": "professional",
+      "name": "휴먼 케어",
+      "impression": "따뜻하고 배려 깊은",
+      "colors": {
+        "base": "#FAF6F1",
+        "secondary": "#B6A69B",
+        "accent": "#437D79",
+        "text": "#35302E",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "따뜻한 뉴트럴과 안정적인 청록 포인트로 안내 중심의 친근한 인상을 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "clinic",
+        "dental"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.1,
+        "onSecondaryContrast": 6.68,
+        "onAccentContrast": 4.72
+      }
+    },
+    {
+      "id": "digital-curated-01",
+      "categoryId": "digital",
+      "name": "인디고 시스템",
+      "impression": "정교하고 혁신적인",
+      "colors": {
+        "base": "#F7F8FF",
+        "secondary": "#5757B9",
+        "accent": "#E19A58",
+        "text": "#252841",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "인디고로 기술적 일관성을 만들고 앰버를 소량 사용해 CTA를 분리합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "saas",
+        "web-service"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 13.59,
+        "onSecondaryContrast": 6.05,
+        "onAccentContrast": 6.72
+      }
+    },
+    {
+      "id": "digital-curated-02",
+      "categoryId": "digital",
+      "name": "모노 인터페이스",
+      "impression": "미니멀하고 집중도 높은",
+      "colors": {
+        "base": "#F7F8F7",
+        "secondary": "#313A3B",
+        "accent": "#51A39A",
+        "text": "#252C2D",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "중성 배경과 차콜로 정보 구조를 선명히 하고 민트를 인터랙션 포인트로 활용합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "saas",
+        "app"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 13.36,
+        "onSecondaryContrast": 11.67,
+        "onAccentContrast": 5.29
+      }
+    },
+    {
+      "id": "digital-curated-03",
+      "categoryId": "digital",
+      "name": "코발트 런치",
+      "impression": "대담하고 선명한",
+      "colors": {
+        "base": "#F6F8FF",
+        "secondary": "#2455D6",
+        "accent": "#F08B55",
+        "text": "#202B48",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "강한 코발트와 코랄을 제한적으로 사용해 새로운 서비스의 개성을 강조합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "app",
+        "personal-project"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 13.19,
+        "onSecondaryContrast": 6.28,
+        "onAccentContrast": 6.39
+      }
+    },
+    {
+      "id": "digital-curated-04",
+      "categoryId": "digital",
+      "name": "퍼플 스펙트럼",
+      "impression": "창의적이고 미래지향적인",
+      "colors": {
+        "base": "#F8F6FD",
+        "secondary": "#7862B4",
+        "accent": "#D77CA0",
+        "text": "#312840",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "보랏빛 계열의 톤 차이와 로즈 포인트로 창의적인 디지털 제품 분위기를 구성합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "personal-project",
+        "web-service"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.99,
+        "onSecondaryContrast": 4.99,
+        "onAccentContrast": 5.45
+      }
+    },
+    {
+      "id": "digital-curated-05",
+      "categoryId": "digital",
+      "name": "에메랄드 플로우",
+      "impression": "차분하고 생산적인",
+      "colors": {
+        "base": "#F3F9F6",
+        "secondary": "#327B6D",
+        "accent": "#C8A368",
+        "text": "#253A34",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "깊은 에메랄드와 샌드 컬러로 복잡한 기능 화면에 안정감을 더합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "saas",
+        "web-service"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.36,
+        "onSecondaryContrast": 5.01,
+        "onAccentContrast": 6.66
+      }
+    },
+    {
+      "id": "digital-curated-06",
+      "categoryId": "digital",
+      "name": "소프트 사이버",
+      "impression": "가볍고 실험적인",
+      "colors": {
+        "base": "#F7F9FB",
+        "secondary": "#92A9E2",
+        "accent": "#6D48C7",
+        "text": "#29334C",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "페리윙클과 바이올렛으로 기술 친화적이면서 부드러운 인상을 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "app",
+        "personal-project"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.9,
+        "onSecondaryContrast": 6.74,
+        "onAccentContrast": 6.17
+      }
+    },
+    {
+      "id": "digital-curated-07",
+      "categoryId": "digital",
+      "name": "네온 노트",
+      "impression": "역동적이고 개성 있는",
+      "colors": {
+        "base": "#F6F6F1",
+        "secondary": "#303C39",
+        "accent": "#B8D74E",
+        "text": "#26312E",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "차콜 구조 위에 라임을 5%만 사용해 제품 데모와 주요 버튼에 집중시킵니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "app",
+        "personal-project"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.41,
+        "onSecondaryContrast": 11.47,
+        "onAccentContrast": 9.64
+      }
+    },
+    {
+      "id": "digital-curated-08",
+      "categoryId": "digital",
+      "name": "블루 그레이",
+      "impression": "신뢰감 있고 현대적인",
+      "colors": {
+        "base": "#F4F7F9",
+        "secondary": "#6E8797",
+        "accent": "#285B86",
+        "text": "#263642",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "블루그레이를 넓은 보조 면에 사용해 B2B 서비스에 차분한 질서를 부여합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "saas",
+        "web-service"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.56,
+        "onSecondaryContrast": 4.18,
+        "onAccentContrast": 7.17
+      }
+    },
+    {
+      "id": "digital-curated-09",
+      "categoryId": "digital",
+      "name": "선셋 프로덕트",
+      "impression": "친근하고 창의적인",
+      "colors": {
+        "base": "#FFF8F1",
+        "secondary": "#E5AA8B",
+        "accent": "#7550A0",
+        "text": "#3A2F37",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "피치와 바이올렛의 대비로 가벼운 소비자용 디지털 제품을 표현합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "app",
+        "personal-project"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.15,
+        "onSecondaryContrast": 7.83,
+        "onAccentContrast": 6.16
+      }
+    },
+    {
+      "id": "other-curated-01",
+      "categoryId": "other",
+      "name": "크리에이터 크림",
+      "impression": "따뜻하고 유연한",
+      "colors": {
+        "base": "#F8F3E9",
+        "secondary": "#B7A38C",
+        "accent": "#7C5844",
+        "text": "#342E29",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "오트와 코코아의 톤온톤 구성으로 개인 브랜드의 콘텐츠가 돋보이도록 합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "studio",
+        "craft"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.1,
+        "onSecondaryContrast": 6.47,
+        "onAccentContrast": 6.29
+      }
+    },
+    {
+      "id": "other-curated-02",
+      "categoryId": "other",
+      "name": "스튜디오 코발트",
+      "impression": "창의적이고 선명한",
+      "colors": {
+        "base": "#F7F7F3",
+        "secondary": "#4965B3",
+        "accent": "#E3B65D",
+        "text": "#26324C",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "차분한 블루와 작은 옐로 포인트로 스튜디오의 시각적 개성을 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "studio"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.9,
+        "onSecondaryContrast": 5.53,
+        "onAccentContrast": 8.33
+      }
+    },
+    {
+      "id": "other-curated-03",
+      "categoryId": "other",
+      "name": "페이퍼 앤 잉크",
+      "impression": "지적이고 클래식한",
+      "colors": {
+        "base": "#F7F4ED",
+        "secondary": "#3B4746",
+        "accent": "#B46E4E",
+        "text": "#2C3331",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "종이 같은 아이보리와 잉크 그린으로 교육·출판형 브랜드의 정돈된 인상을 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "education"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.77,
+        "onSecondaryContrast": 9.65,
+        "onAccentContrast": 3.96
+      }
+    },
+    {
+      "id": "other-curated-04",
+      "categoryId": "other",
+      "name": "클레이 공방",
+      "impression": "손맛 있고 자연스러운",
+      "colors": {
+        "base": "#F6F0E8",
+        "secondary": "#AD8068",
+        "accent": "#576A4C",
+        "text": "#382E28",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "흙빛과 세이지의 조합으로 수공예 소재의 질감을 돋보이게 합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "craft"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.67,
+        "onSecondaryContrast": 4.54,
+        "onAccentContrast": 5.88
+      }
+    },
+    {
+      "id": "other-curated-05",
+      "categoryId": "other",
+      "name": "라일락 클래스",
+      "impression": "친근하고 부드러운",
+      "colors": {
+        "base": "#F9F7FD",
+        "secondary": "#AA9DCC",
+        "accent": "#5C538F",
+        "text": "#332E42",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "라일락과 잉크 퍼플로 접근하기 쉬운 교육 서비스의 분위기를 만듭니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "education"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.27,
+        "onSecondaryContrast": 6.3,
+        "onAccentContrast": 6.8
+      }
+    },
+    {
+      "id": "other-curated-06",
+      "categoryId": "other",
+      "name": "테라코타 노트",
+      "impression": "감각적이고 따뜻한",
+      "colors": {
+        "base": "#FBF4ED",
+        "secondary": "#C77F61",
+        "accent": "#4B5D52",
+        "text": "#392F2A",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "테라코타를 넓은 보조 면에 사용하고 포레스트 그린을 작은 행동 포인트로 둡니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "craft",
+        "studio"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 11.94,
+        "onSecondaryContrast": 4.97,
+        "onAccentContrast": 7.03
+      }
+    },
+    {
+      "id": "other-curated-07",
+      "categoryId": "other",
+      "name": "아카이브 그레이",
+      "impression": "절제되고 현대적인",
+      "colors": {
+        "base": "#F5F5F3",
+        "secondary": "#8A8F8D",
+        "accent": "#3C5663",
+        "text": "#2A3031",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "무채색을 중심으로 작은 잉크블루 포인트를 더해 작품과 포트폴리오를 강조합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "studio"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#FFFFFF",
+        "textOnBaseContrast": 12.29,
+        "onSecondaryContrast": 4.79,
+        "onAccentContrast": 7.77
+      }
+    },
+    {
+      "id": "other-curated-08",
+      "categoryId": "other",
+      "name": "메도우 데이",
+      "impression": "밝고 편안한",
+      "colors": {
+        "base": "#F9F8EC",
+        "secondary": "#B6C49B",
+        "accent": "#B86A4C",
+        "text": "#30382B",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "초원의 연두와 따뜻한 코랄로 소규모 커뮤니티와 클래스에 친근함을 더합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "education",
+        "craft"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#202420",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 11.39,
+        "onSecondaryContrast": 8.51,
+        "onAccentContrast": 3.9
+      }
+    },
+    {
+      "id": "other-curated-09",
+      "categoryId": "other",
+      "name": "미드나잇 퍼플",
+      "impression": "독창적이고 고급스러운",
+      "colors": {
+        "base": "#F5F2F7",
+        "secondary": "#54415E",
+        "accent": "#B08A65",
+        "text": "#2F2833",
+        "surface": "#FFFFFF"
+      },
+      "ratio": {
+        "base": 75,
+        "secondary": 20,
+        "accent": 5
+      },
+      "reason": "깊은 플럼과 브론즈로 예술·창작 브랜드의 차분한 개성을 표현합니다.",
+      "status": "design_hypothesis",
+      "recommendedSubcategoryIds": [
+        "studio",
+        "craft"
+      ],
+      "usage": {
+        "base": "페이지 배경·여백",
+        "secondary": "섹션 배경·넓은 보조 면",
+        "accent": "강조·CTA 주변 요소 (텍스트 대비 확인)",
+        "text": "본문 및 제목"
+      },
+      "accessibility": {
+        "onSecondary": "#FFFFFF",
+        "onAccent": "#202420",
+        "textOnBaseContrast": 12.86,
+        "onSecondaryContrast": 9.15,
+        "onAccentContrast": 5.0
+      }
+    }
+  ]
+}
