@@ -7,7 +7,6 @@ import { trackEvent } from "@/lib/analytics";
 export function CategorySelectTracker({ categoryId }: { categoryId: string }) {
   useEffect(() => {
     trackEvent("category_selected", { category_id: categoryId });
-    trackEvent("recommendation_start", { category_id: categoryId });
   }, [categoryId]);
 
   return null;

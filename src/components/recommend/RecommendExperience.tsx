@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { ColorCodesPanel } from "@/components/palette/ColorCodesPanel";
 import { WebsitePreview } from "@/components/website-preview/WebsitePreview";
 import { WebsiteInquiryCTA } from "@/components/conversion/WebsiteInquiryCTA";
@@ -87,10 +87,6 @@ export function RecommendExperience({
     allVisible.find((p) => p.id === selectedId) ??
     featured[0] ??
     more[0];
-
-  useEffect(() => {
-    trackEvent("recommendation_view", { category_id: category.id });
-  }, [category.id]);
 
   if (!selected) {
     return (
@@ -185,12 +181,7 @@ export function RecommendExperience({
                   kind="secondary"
                   className="more-button"
                   type="button"
-                  onClick={() => {
-                    setShowMore(true);
-                    trackEvent("more_palettes_clicked", {
-                      category_id: category.id,
-                    });
-                  }}
+                  onClick={() => setShowMore(true)}
                 >
                   다른 컬러 조합 더 보기 <Icon name="down" size={17} />
                 </Button>
@@ -283,12 +274,7 @@ export function RecommendExperience({
                 kind="secondary"
                 className="more-button"
                 type="button"
-                onClick={() => {
-                  setShowMore(true);
-                  trackEvent("more_palettes_clicked", {
-                    category_id: category.id,
-                  });
-                }}
+                onClick={() => setShowMore(true)}
               >
                 다른 컬러 조합 더 보기 <Icon name="down" size={17} />
               </Button>
@@ -313,11 +299,7 @@ export function RecommendExperience({
         <ColorCodesPanel palette={selected} onToast={showToast} />
       </div>
 
-      <WebsiteInquiryCTA
-        category={category}
-        palette={selected}
-        onToast={showToast}
-      />
+      <WebsiteInquiryCTA />
       <Toast message={message} />
     </div>
   );

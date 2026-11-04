@@ -27,10 +27,11 @@ export function ColorCodesPanel({
   async function handleCopy(value: string, all = false) {
     const ok = await copyText(value);
     if (ok) {
-      trackEvent(all ? "all_colors_copied" : "color_copied", {
+      trackEvent("color_copied", {
         palette_id: palette.id,
         palette_name: palette.name,
         category_id: palette.categoryId,
+        all,
       });
       onToast("컬러 코드가 복사됐어요.");
     } else {
