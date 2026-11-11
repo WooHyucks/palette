@@ -1,6 +1,7 @@
 import { CategoryGrid } from "@/components/category/CategoryGrid";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { LandingTracker } from "@/components/landing/LandingTracker";
+import { HomepagePromoToast } from "@/components/marketing/HomepagePromoToast";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Icon } from "@/components/ui/Icon";
@@ -51,6 +52,7 @@ export default function HomePage() {
         </section>
       </main>
       <Footer />
+      <HomepagePromoToast />
     </>
   );
 }

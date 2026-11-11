@@ -2,7 +2,10 @@ export type AnalyticsEventName =
   | "landing_view"
   | "category_selected"
   | "palette_selected"
-  | "color_copied";
+  | "color_copied"
+  | "homepage_promo_view"
+  | "homepage_promo_click"
+  | "homepage_promo_dismiss";
 
 export interface AnalyticsPayload {
   category_id?: string;

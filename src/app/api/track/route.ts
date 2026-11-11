@@ -3,6 +3,9 @@ const EVENTS = new Set([
   "category_selected",
   "palette_selected",
   "color_copied",
+  "homepage_promo_view",
+  "homepage_promo_click",
+  "homepage_promo_dismiss",
 ]);
 
 const STRING_KEYS = ["category_id", "palette_id", "palette_name"] as const;
