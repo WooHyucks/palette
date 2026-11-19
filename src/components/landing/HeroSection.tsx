@@ -10,9 +10,9 @@ export function HeroSection() {
       <div className="studio-hero-copy">
         <p className="studio-kicker">NEW · RENEWAL · {PRICE_SHORT}</p>
         <h1>
-          우리 가게 홈페이지,
+          우리 가게에 맞는 홈페이지,
           <br />
-          <em>30만 원</em>이면 충분합니다.
+          <em>30만 원</em>에 제작해 드립니다
         </h1>
         <p className="studio-hero-lead">
           처음 만드는 홈페이지부터
