@@ -1,5 +1,13 @@
 export type AnalyticsEventName =
   | "landing_view"
+  | "sample_view"
+  | "sample_open"
+  | "pricing_view"
+  | "new_website_section_view"
+  | "renewal_section_view"
+  | "before_after_interaction"
+  | "renewal_demo_open"
+  | "instagram_inquiry_click"
   | "category_selected"
   | "palette_selected"
   | "color_copied"
@@ -12,6 +20,12 @@ export interface AnalyticsPayload {
   palette_id?: string;
   palette_name?: string;
   all?: boolean;
+  sample_id?: string;
+  cta_location?: string;
+  service_type?: "new" | "renewal";
+  source?: string;
+  medium?: string;
+  campaign?: string;
 }
 
 const DEVICE_KEY = "palette_device_id";
@@ -24,6 +38,18 @@ function deviceId() {
   return id;
 }
 
+function attributionFromUrl(): Pick<
+  AnalyticsPayload,
+  "source" | "medium" | "campaign"
+> {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    source: params.get("utm_source") ?? undefined,
+    medium: params.get("utm_medium") ?? undefined,
+    campaign: params.get("utm_campaign") ?? undefined,
+  };
+}
+
 /** 허용된 이벤트만 서버로 보낸다. 키는 서버 환경변수에만 둔다. */
 export function trackEvent(
   name: AnalyticsEventName,
@@ -31,8 +57,9 @@ export function trackEvent(
 ): void {
   if (typeof window === "undefined") return;
 
+  const merged = { ...attributionFromUrl(), ...payload };
   const properties = Object.fromEntries(
-    Object.entries(payload).filter(([, value]) => value !== undefined),
+    Object.entries(merged).filter(([, value]) => value !== undefined),
   );
 
   if (process.env.NODE_ENV === "development") {

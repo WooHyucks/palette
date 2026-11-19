@@ -1,31 +1,25 @@
-"use client";
-
 import Link from "next/link";
+import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
 
-interface HeaderProps {
-  variant?: "overlay" | "solid";
-  onStartHref?: string;
-}
-
-export function Header({
-  variant = "overlay",
-  onStartHref = "#categories",
-}: HeaderProps) {
+export function Header() {
   return (
-    <header className={variant === "overlay" ? "site-header" : "recommend-header"}>
+    <header className="site-header">
       <div className="header-inner">
         <Link href="/" className="logo" aria-label="Palette 홈">
           PALETTE<span>.</span>
         </Link>
         <nav className="header-nav" aria-label="주요 메뉴">
-          {variant === "overlay" ? (
-            <>
-              <a href="#steps">이용 방법</a>
-              <a href={onStartHref}>컬러 찾기</a>
-            </>
-          ) : (
-            <Link href="/#categories">업종 변경</Link>
-          )}
+          <a href="#services">서비스</a>
+          <a href="#work">샘플</a>
+          <a href="#renewal">리뉴얼</a>
+          <a href="#pricing">가격</a>
+          <InstagramInquiryLink
+            className="header-inquiry"
+            ctaLocation="header"
+            showArrow={false}
+          >
+            문의
+          </InstagramInquiryLink>
         </nav>
       </div>
     </header>

@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-import { getAllCategories } from "@/lib/palette";
+import { WORK_SAMPLES } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://palette.local";
-  const categories = getAllCategories();
-
-  const lastModified = "2026-10-22";
+  const base =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://palette-beige-seven.vercel.app";
+  const lastModified = "2026-11-19";
 
   return [
     {
@@ -14,11 +13,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
-    ...categories.map((category) => ({
-      url: `${base}/recommend?category=${category.id}`,
+    ...WORK_SAMPLES.map((sample) => ({
+      url: `${base}${sample.href}`,
       lastModified,
-      changeFrequency: "weekly" as const,
-      priority: 0.8,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
     })),
+    {
+      url: `${base}/renewal-demo`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
   ];
 }

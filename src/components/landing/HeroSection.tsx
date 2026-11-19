@@ -1,41 +1,71 @@
 import Link from "next/link";
-import { ColorDemo } from "@/components/landing/ColorDemo";
-import { Icon } from "@/components/ui/Icon";
-import type { Palette } from "@/types/palette";
+import { ArrowDownRight } from "lucide-react";
+import { SamplePreview } from "@/components/preview/SamplePreview";
+import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { PRICE_LABEL, PRICE_SHORT } from "@/lib/site";
 
-interface HeroSectionProps {
-  demoPalettes: Palette[];
-}
-
-export function HeroSection({ demoPalettes }: HeroSectionProps) {
+export function HeroSection() {
   return (
-    <section className="hero">
-      <div className="hero-copy">
-        <p className="hero-kicker">BRAND COLOR RECOMMENDATION</p>
-        <h1 className="hero-brand">PALETTE</h1>
-        <div className="hero-meta">
-          <span>COLOR STUDIO / SEOUL</span>
-          <span>PERSONALIZED FOR YOUR BRAND</span>
-        </div>
-        <div className="hero-statement">
-          <h2>
-            당신의 브랜드,
-            <br />
-            어떤 색으로 기억되고 싶나요?
-          </h2>
-          <div>
-            <p className="hero-description">
-              업종만 선택하세요. 어울리는 컬러 조합을 추천하고,{" "}
-              <br />
-              실제 홈페이지에 적용된 모습까지 보여드릴게요.
-            </p>
-            <Link href="#categories" className="button button--dark">
-              내 브랜드 컬러 찾기 <Icon name="arrow" />
-            </Link>
+    <section className="studio-hero">
+      <div className="studio-hero-copy">
+        <p className="studio-kicker">NEW · RENEWAL · {PRICE_SHORT}</p>
+        <h1>
+          우리 가게 홈페이지,
+          <br />
+          <em>30만 원</em>이면 충분합니다.
+        </h1>
+        <p className="studio-hero-lead">
+          처음 만드는 홈페이지부터
+          <br />
+          오래된 홈페이지 리뉴얼까지.
+          <br />
+          우리 브랜드에 맞게 제작해 드립니다.
+        </p>
+      </div>
+
+      <div className="studio-hero-visual">
+        <div className="studio-browser hero-browser">
+          <div className="studio-browser-bar">
+            <i />
+            <i />
+            <i />
+            <span>hauscoffee.kr</span>
           </div>
+          <SamplePreview
+            sampleId="haus-coffee"
+            mobileHeight={560}
+            breakpoint={480}
+          />
+          <Link
+            href="/work/haus-coffee"
+            className="preview-cover"
+            aria-label="HAUS COFFEE 디자인 샘플 보기"
+          />
+        </div>
+        <Link href="#work" className="studio-hero-chip">
+          디자인 샘플과 리뉴얼 비교 보기
+          <ArrowDownRight size={14} strokeWidth={1.8} aria-hidden="true" />
+        </Link>
+      </div>
+
+      <div className="studio-hero-cta-block">
+        <div className="studio-hero-price" aria-label={`기본 제작 가격 ${PRICE_LABEL}`}>
+          <span>기본형 원페이지 · 신규 / 리뉴얼</span>
+          <strong>{PRICE_LABEL}</strong>
+        </div>
+        <div className="studio-hero-actions">
+          <a href="#work" className="studio-btn studio-btn--primary">
+            디자인 먼저 보기
+            <ArrowDownRight size={16} strokeWidth={1.8} aria-hidden="true" />
+          </a>
+          <InstagramInquiryLink
+            className="studio-btn studio-btn--ghost"
+            ctaLocation="hero"
+          >
+            제작 문의하기
+          </InstagramInquiryLink>
         </div>
       </div>
-      <ColorDemo palettes={demoPalettes} />
     </section>
   );
 }

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { CategorySelectTracker } from "@/components/category/CategorySelectTracker";
 import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+import { RecommendHeader } from "@/components/layout/RecommendHeader";
 import { RecommendExperience } from "@/components/recommend/RecommendExperience";
 import {
   getAllCategories,
@@ -128,7 +128,7 @@ function RecommendFallback() {
 export default function RecommendPage({ searchParams }: RecommendPageProps) {
   return (
     <>
-      <Header variant="solid" />
+      <RecommendHeader />
       <main>
         <Suspense fallback={<RecommendFallback />}>
           <RecommendContent searchParams={searchParams} />

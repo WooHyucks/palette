@@ -1,27 +1,37 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./studio.css";
+import "./samples.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Palette — 브랜드 컬러 추천",
-    template: "%s | Palette",
+    default: "PALETTE | 홈페이지 제작·리뉴얼 30만 원",
+    template: "%s | PALETTE",
   },
   description:
-    "업종만 선택하면 어울리는 컬러 조합을 추천하고, 실제 홈페이지에 적용된 모습까지 보여드려요.",
-  keywords: ["브랜드 컬러", "컬러 팔레트", "홈페이지 디자인", "Palette"],
+    "우리 가게 홈페이지, 30만 원. 신규 홈페이지 제작부터 오래된 홈페이지 리뉴얼까지. 디자인을 먼저 확인하고 브랜드에 맞게 제작하세요.",
+  keywords: [
+    "홈페이지 제작",
+    "홈페이지 리뉴얼",
+    "홈페이지 리디자인",
+    "소상공인 홈페이지",
+    "자영업자 홈페이지",
+    "저렴한 홈페이지 제작",
+    "반응형 홈페이지",
+  ],
   openGraph: {
-    title: "Palette — 브랜드 컬러 추천",
+    title: "PALETTE | 홈페이지 제작·리뉴얼 30만 원",
     description:
-      "업종만 선택하세요. 어울리는 컬러 조합과 실제 홈페이지 미리보기를 바로 확인할 수 있어요.",
+      "신규 제작과 리뉴얼 모두 기본형 ₩300,000. 디자인을 먼저 확인하고 문의하세요.",
     locale: "ko_KR",
     type: "website",
-    siteName: "Palette",
+    siteName: "PALETTE",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Palette — 브랜드 컬러 추천",
+    title: "PALETTE | 홈페이지 제작·리뉴얼 30만 원",
     description:
-      "업종만 선택하면 어울리는 컬러 조합과 홈페이지 미리보기를 확인할 수 있어요.",
+      "신규 제작과 리뉴얼 모두 기본형 ₩300,000. 디자인을 먼저 확인하고 문의하세요.",
   },
   robots: {
     index: true,

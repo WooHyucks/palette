@@ -1,5 +1,13 @@
 const EVENTS = new Set([
   "landing_view",
+  "sample_view",
+  "sample_open",
+  "pricing_view",
+  "new_website_section_view",
+  "renewal_section_view",
+  "before_after_interaction",
+  "renewal_demo_open",
+  "instagram_inquiry_click",
   "category_selected",
   "palette_selected",
   "color_copied",
@@ -8,7 +16,17 @@ const EVENTS = new Set([
   "homepage_promo_dismiss",
 ]);
 
-const STRING_KEYS = ["category_id", "palette_id", "palette_name"] as const;
+const STRING_KEYS = [
+  "category_id",
+  "palette_id",
+  "palette_name",
+  "sample_id",
+  "cta_location",
+  "service_type",
+  "source",
+  "medium",
+  "campaign",
+] as const;
 
 export async function POST(request: Request) {
   const key = process.env.AMPLITUDE_API_KEY;
@@ -41,7 +59,7 @@ export async function POST(request: Request) {
     const props = properties as Record<string, unknown>;
     for (const name of STRING_KEYS) {
       const value = props[name];
-      if (typeof value === "string" && value.length > 0 && value.length <= 80) {
+      if (typeof value === "string" && value.length > 0 && value.length <= 120) {
         eventProperties[name] = value;
       }
     }
