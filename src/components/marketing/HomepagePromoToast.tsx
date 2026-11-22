@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight, WandSparkles, X } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 
 const DISMISS_KEY = "palette_homepage_promo_dismissed";
-const INSTAGRAM_URL = "https://www.instagram.com/palette_official___/";
 const MOBILE_QUERY = "(max-width: 639px)";
 
 export function HomepagePromoToast() {
@@ -77,16 +77,10 @@ export function HomepagePromoToast() {
         홈페이지 제작 <strong>30만 원부터</strong>
       </p>
       <p className="promo-toast-note">브랜드 컬러부터 실제 홈페이지 제작까지.</p>
-      <a
-        className="promo-toast-cta"
-        href={INSTAGRAM_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={inquire}
-      >
-        인스타 문의하기
+      <Link className="promo-toast-cta" href="/inquiry?from=promo" onClick={inquire}>
+        제작 문의하기
         <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
-      </a>
+      </Link>
     </aside>
   );
 }

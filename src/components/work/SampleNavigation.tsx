@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 import type { WorkSampleId } from "@/lib/site";
 
 interface SampleNavigationProps {
@@ -16,14 +16,14 @@ export function SampleNavigation({ sampleId, brand }: SampleNavigationProps) {
         ← PALETTE
       </Link>
       <span className="sample-nav-brand">{brand} · DESIGN SAMPLE</span>
-      <InstagramInquiryLink
+      <InquiryLink
         className="sample-nav-cta"
         ctaLocation="sample_bar"
         sampleId={sampleId}
         showArrow={false}
       >
         제작 문의
-      </InstagramInquiryLink>
+      </InquiryLink>
     </div>
   );
 }

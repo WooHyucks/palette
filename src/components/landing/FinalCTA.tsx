@@ -1,4 +1,4 @@
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 import { PRICE_SHORT } from "@/lib/site";
 
 export function FinalCTA() {
@@ -15,12 +15,12 @@ export function FinalCTA() {
         <br />
         {PRICE_SHORT}부터 시작하세요.
       </p>
-      <InstagramInquiryLink
+      <InquiryLink
         className="studio-btn studio-btn--light"
         ctaLocation="final_cta"
       >
-        인스타그램으로 문의하기
-      </InstagramInquiryLink>
+        제작 문의하기
+      </InquiryLink>
     </section>
   );
 }

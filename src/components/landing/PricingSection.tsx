@@ -1,5 +1,5 @@
 import { SectionObserver } from "@/components/landing/SectionObserver";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 import { PRICE_LABEL } from "@/lib/site";
 
 const INCLUDED = [
@@ -77,12 +77,12 @@ export function PricingSection() {
             </p>
           </div>
         </div>
-        <InstagramInquiryLink
+        <InquiryLink
           className="studio-btn studio-btn--primary"
           ctaLocation="pricing"
         >
           30만 원에 문의하기
-        </InstagramInquiryLink>
+        </InquiryLink>
       </div>
     </SectionObserver>
   );

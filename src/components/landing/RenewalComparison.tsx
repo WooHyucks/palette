@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { SectionObserver } from "@/components/landing/SectionObserver";
 import { BeforeAfterSlider } from "@/components/renewal/BeforeAfterSlider";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 
 export function RenewalComparison() {
   return (
@@ -34,13 +34,13 @@ export function RenewalComparison() {
       <div className="studio-renewal-cta">
         <p>우리 홈페이지도 이렇게 바꿀 수 있을까요?</p>
         <div className="studio-hero-actions">
-          <InstagramInquiryLink
+          <InquiryLink
             className="studio-btn studio-btn--primary"
             ctaLocation="renewal_section"
             serviceType="renewal"
           >
             30만 원 리뉴얼 문의하기
-          </InstagramInquiryLink>
+          </InquiryLink>
           <Link href="/renewal-demo" className="studio-btn studio-btn--ghost">
             리뉴얼 데모 직접 보기
             <ArrowUpRight size={16} strokeWidth={1.8} aria-hidden="true" />

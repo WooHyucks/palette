@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 import { PRICE_SHORT } from "@/lib/site";
 
 export function Footer() {
@@ -17,13 +17,13 @@ export function Footer() {
         <a href="#renewal">리뉴얼</a>
         <a href="#pricing">가격</a>
         <a href="#faq">FAQ</a>
-        <InstagramInquiryLink
+        <InquiryLink
           className="footer-inquiry"
           ctaLocation="footer"
           showArrow={false}
         >
-          인스타그램
-        </InstagramInquiryLink>
+          제작 문의
+        </InquiryLink>
       </nav>
       <small>© 2026 Palette Studio</small>
     </footer>

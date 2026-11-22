@@ -7,6 +7,10 @@ export type AnalyticsEventName =
   | "renewal_section_view"
   | "before_after_interaction"
   | "renewal_demo_open"
+  | "inquiry_click"
+  | "inquiry_view"
+  | "inquiry_start"
+  | "inquiry_submit"
   | "instagram_inquiry_click"
   | "category_selected"
   | "palette_selected"
@@ -26,6 +30,9 @@ export interface AnalyticsPayload {
   source?: string;
   medium?: string;
   campaign?: string;
+  contact?: string;
+  business?: string;
+  page_brief?: string;
 }
 
 const DEVICE_KEY = "palette_device_id";
@@ -50,30 +57,43 @@ function attributionFromUrl(): Pick<
   };
 }
 
+function eventBody(name: AnalyticsEventName, payload: AnalyticsPayload) {
+  const merged = { ...attributionFromUrl(), ...payload };
+  const properties = Object.fromEntries(
+    Object.entries(merged).filter(([, value]) => value !== undefined),
+  );
+  return {
+    event: name,
+    device_id: deviceId(),
+    properties,
+  };
+}
+
 /** 허용된 이벤트만 서버로 보낸다. 키는 서버 환경변수에만 둔다. */
 export function trackEvent(
   name: AnalyticsEventName,
   payload: AnalyticsPayload = {},
 ): void {
-  if (typeof window === "undefined") return;
+  void trackEventAsync(name, payload);
+}
 
-  const merged = { ...attributionFromUrl(), ...payload };
-  const properties = Object.fromEntries(
-    Object.entries(merged).filter(([, value]) => value !== undefined),
-  );
+export function trackEventAsync(
+  name: AnalyticsEventName,
+  payload: AnalyticsPayload = {},
+): Promise<boolean> {
+  if (typeof window === "undefined") return Promise.resolve(false);
 
+  const body = eventBody(name, payload);
   if (process.env.NODE_ENV === "development") {
-    console.info("[palette:analytics]", name, properties);
+    console.info("[palette:analytics]", name, body.properties);
   }
 
-  fetch("/api/track", {
+  return fetch("/api/track", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      event: name,
-      device_id: deviceId(),
-      properties,
-    }),
+    body: JSON.stringify(body),
     keepalive: true,
-  }).catch(() => {});
+  })
+    .then((response) => response.ok)
+    .catch(() => false);
 }

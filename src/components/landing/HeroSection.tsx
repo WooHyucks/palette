@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowDownRight } from "lucide-react";
 import { SamplePreview } from "@/components/preview/SamplePreview";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 import { PRICE_LABEL, PRICE_SHORT } from "@/lib/site";
 
 export function HeroSection() {
@@ -58,12 +58,12 @@ export function HeroSection() {
             디자인 먼저 보기
             <ArrowDownRight size={16} strokeWidth={1.8} aria-hidden="true" />
           </a>
-          <InstagramInquiryLink
+          <InquiryLink
             className="studio-btn studio-btn--ghost"
             ctaLocation="hero"
           >
             제작 문의하기
-          </InstagramInquiryLink>
+          </InquiryLink>
         </div>
       </div>
     </section>

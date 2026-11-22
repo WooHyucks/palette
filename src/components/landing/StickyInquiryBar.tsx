@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 import { PRICE_SHORT } from "@/lib/site";
 
 export function StickyInquiryBar() {
@@ -39,13 +39,13 @@ export function StickyInquiryBar() {
         <p>
           홈페이지 제작 · 리뉴얼 <strong>{PRICE_SHORT}</strong>
         </p>
-        <InstagramInquiryLink
+        <InquiryLink
           className="studio-sticky-cta"
           ctaLocation="sticky_bar"
           showArrow
         >
           문의하기
-        </InstagramInquiryLink>
+        </InquiryLink>
       </div>
     </div>
   );

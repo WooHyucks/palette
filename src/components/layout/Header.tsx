@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 
 export function Header() {
   return (
@@ -13,13 +13,13 @@ export function Header() {
           <a href="#work">샘플</a>
           <a href="#renewal">리뉴얼</a>
           <a href="#pricing">가격</a>
-          <InstagramInquiryLink
+          <InquiryLink
             className="header-inquiry"
             ctaLocation="header"
             showArrow={false}
           >
             문의
-          </InstagramInquiryLink>
+          </InquiryLink>
         </nav>
       </div>
     </header>

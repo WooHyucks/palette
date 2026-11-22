@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { InstagramInquiryLink } from "@/components/ui/InstagramInquiryLink";
+import { InquiryLink } from "@/components/ui/InquiryLink";
 import {
   SEORAE,
   SeoraeAfterSite,
@@ -44,14 +44,14 @@ export function RenewalDemoClient() {
             AFTER
           </button>
         </div>
-        <InstagramInquiryLink
+        <InquiryLink
           className="renewal-demo-ask"
           ctaLocation="renewal_demo"
           serviceType="renewal"
           showArrow={false}
         >
           문의하기
-        </InstagramInquiryLink>
+        </InquiryLink>
       </div>
 
       <p className="renewal-demo-note">

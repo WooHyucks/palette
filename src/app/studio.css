@@ -910,3 +910,135 @@
     transition: none;
   }
 }
+
+/* ── Inquiry page ── */
+.ask-page {
+  min-height: 100dvh;
+  background: var(--cream);
+  color: var(--charcoal);
+}
+
+.ask-bar {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 var(--gutter);
+}
+
+.ask-bar .logo span { color: var(--orange); }
+
+.ask-main {
+  width: min(560px, calc(100% - var(--gutter) * 2));
+  margin: 0 auto;
+  padding: 8px 0 80px;
+}
+
+.ask-main h1 {
+  margin: 0;
+  font-size: clamp(32px, 8vw, 48px);
+  font-weight: 700;
+  letter-spacing: -.05em;
+  line-height: 1.16;
+}
+
+.ask-success h1:focus { outline: none; }
+
+.ask-lead,
+.ask-success p {
+  margin: 14px 0 28px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.ask-form { display: grid; gap: 22px; }
+
+.ask-context {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.ask-choice {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ask-choice legend {
+  grid-column: 1 / -1;
+  margin-bottom: 2px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ask-choice button {
+  min-height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--charcoal);
+  font-weight: 700;
+}
+
+.ask-choice button[aria-pressed="true"] {
+  border-color: var(--charcoal);
+  background: var(--charcoal);
+  color: #fff;
+}
+
+.ask-choice small,
+.ask-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.ask-choice small { grid-column: 1 / -1; }
+
+.ask-field { display: grid; gap: 8px; }
+
+.ask-field label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ask-field input,
+.ask-field textarea {
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--charcoal);
+  font-size: 16px;
+}
+
+.ask-field textarea {
+  min-height: 140px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.ask-field input:focus,
+.ask-field textarea:focus {
+  outline: none;
+  border-color: var(--charcoal);
+}
+
+.ask-field small { color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+.ask-error { margin: 0; color: #9a3412; font-size: 13px; }
+
+.ask-submit { width: 100%; min-height: 56px; }
+.ask-submit:disabled { opacity: .6; }
+
+.ask-success .studio-btn { width: fit-content; min-width: 140px; }
