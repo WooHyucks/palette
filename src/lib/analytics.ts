@@ -12,6 +12,11 @@ export type AnalyticsEventName =
   | "inquiry_start"
   | "inquiry_submit"
   | "instagram_inquiry_click"
+  | "funnel_category_select"
+  | "funnel_loading_view"
+  | "funnel_results_view"
+  | "design_preview_open"
+  | "design_inquiry_cta_click"
   | "category_selected"
   | "palette_selected"
   | "color_copied"
@@ -25,6 +30,7 @@ export interface AnalyticsPayload {
   palette_name?: string;
   all?: boolean;
   sample_id?: string;
+  design_id?: string;
   cta_location?: string;
   service_type?: "new" | "renewal";
   source?: string;
@@ -33,6 +39,7 @@ export interface AnalyticsPayload {
   contact?: string;
   business?: string;
   page_brief?: string;
+  consent?: boolean;
 }
 
 const DEVICE_KEY = "palette_device_id";

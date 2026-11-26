@@ -6,7 +6,7 @@ import { InquiryForm } from "@/components/inquiry/InquiryForm";
 export const metadata: Metadata = {
   title: "제작 문의",
   description:
-    "연락처와 가게, 만들고 싶은 페이지를 남겨 주세요. 확인 후 연락드립니다.",
+    "선택한 디자인으로 홈페이지 제작을 문의하세요. 연락처만 남겨 주시면 확인 후 연락드립니다.",
 };
 
 export default function InquiryPage() {

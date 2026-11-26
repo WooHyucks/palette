@@ -2,36 +2,37 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./studio.css";
 import "./samples.css";
+import "./designs.css";
+import "./funnel.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "PALETTE | 홈페이지 제작·리뉴얼 30만 원",
+    default: "PALETTE | 업종에 맞는 홈페이지 디자인 추천",
     template: "%s | PALETTE",
   },
   description:
-    "우리 가게 홈페이지, 30만 원. 신규 홈페이지 제작부터 오래된 홈페이지 리뉴얼까지. 디자인을 먼저 확인하고 브랜드에 맞게 제작하세요.",
+    "업종에 어울리는 홈페이지 디자인 3가지를 추천해 드려요. 마음에 드는 시안으로 30만 원에 제작합니다.",
   keywords: [
     "홈페이지 제작",
-    "홈페이지 리뉴얼",
-    "홈페이지 리디자인",
+    "홈페이지 디자인 추천",
     "소상공인 홈페이지",
     "자영업자 홈페이지",
     "저렴한 홈페이지 제작",
-    "반응형 홈페이지",
+    "원페이지 홈페이지",
   ],
   openGraph: {
-    title: "PALETTE | 홈페이지 제작·리뉴얼 30만 원",
+    title: "PALETTE | 업종에 맞는 홈페이지 디자인 추천",
     description:
-      "신규 제작과 리뉴얼 모두 기본형 ₩300,000. 디자인을 먼저 확인하고 문의하세요.",
+      "업종만 선택하면 어울리는 디자인 시안 3개를 바로 확인하세요. 기본 제작 ₩300,000.",
     locale: "ko_KR",
     type: "website",
     siteName: "PALETTE",
   },
   twitter: {
     card: "summary_large_image",
-    title: "PALETTE | 홈페이지 제작·리뉴얼 30만 원",
+    title: "PALETTE | 업종에 맞는 홈페이지 디자인 추천",
     description:
-      "신규 제작과 리뉴얼 모두 기본형 ₩300,000. 디자인을 먼저 확인하고 문의하세요.",
+      "업종만 선택하면 어울리는 디자인 시안 3개를 바로 확인하세요. 기본 제작 ₩300,000.",
   },
   robots: {
     index: true,

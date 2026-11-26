@@ -959,7 +959,28 @@
   border-radius: 14px;
   background: #fff;
   font-size: 14px;
-  font-weight: 650;
+  display: grid;
+  gap: 4px;
+}
+
+.ask-context p { margin: 0; color: var(--muted); }
+.ask-context strong { color: var(--charcoal); font-weight: 700; }
+
+.ask-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.ask-consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex: none;
 }
 
 .ask-choice {

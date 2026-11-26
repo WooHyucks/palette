@@ -12,6 +12,11 @@ const EVENTS = new Set([
   "inquiry_start",
   "inquiry_submit",
   "instagram_inquiry_click",
+  "funnel_category_select",
+  "funnel_loading_view",
+  "funnel_results_view",
+  "design_preview_open",
+  "design_inquiry_cta_click",
   "category_selected",
   "palette_selected",
   "color_copied",
@@ -25,6 +30,7 @@ const STRING_LIMITS = {
   palette_id: 80,
   palette_name: 80,
   sample_id: 40,
+  design_id: 40,
   cta_location: 40,
   service_type: 20,
   source: 80,
@@ -36,6 +42,24 @@ const STRING_LIMITS = {
 } as const;
 
 const SAMPLE_IDS = new Set(["soom", "auro", "haus-coffee"]);
+const DESIGN_IDS = new Set([
+  "minimal",
+  "heritage",
+  "editorial",
+  "bold",
+  "lifestyle",
+  "natural",
+]);
+const CATEGORY_IDS = new Set([
+  "cafe",
+  "food",
+  "beauty",
+  "medical",
+  "fitness",
+  "stay",
+  "pro",
+  "other",
+]);
 
 export async function POST(request: Request) {
   let body: unknown;
@@ -66,21 +90,34 @@ export async function POST(request: Request) {
     for (const name of Object.keys(STRING_LIMITS) as (keyof typeof STRING_LIMITS)[]) {
       const value = props[name];
       if (typeof value !== "string") continue;
-      const cleaned = value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").trim();
+      const cleaned = value
+        .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "")
+        .trim();
       if (!cleaned || cleaned.length > STRING_LIMITS[name]) continue;
       if (name === "service_type" && cleaned !== "new" && cleaned !== "renewal") continue;
       if (name === "sample_id" && !SAMPLE_IDS.has(cleaned)) continue;
+      if (name === "design_id" && !DESIGN_IDS.has(cleaned)) continue;
+      if (
+        name === "category_id" &&
+        !CATEGORY_IDS.has(cleaned) &&
+        cleaned.length > 40
+      ) {
+        continue;
+      }
       if (name === "cta_location" && !/^[a-z0-9_]{1,40}$/.test(cleaned)) continue;
       eventProperties[name] = cleaned;
     }
     if (typeof props.all === "boolean") eventProperties.all = props.all;
+    if (typeof props.consent === "boolean") eventProperties.consent = props.consent;
   }
 
-  if (
-    event === "inquiry_submit" &&
-    (!eventProperties.contact || !eventProperties.business || !eventProperties.page_brief)
-  ) {
-    return new Response(null, { status: 400 });
+  if (event === "inquiry_submit") {
+    if (!eventProperties.contact) {
+      return new Response(null, { status: 400 });
+    }
+    if (eventProperties.consent !== true) {
+      return new Response(null, { status: 400 });
+    }
   }
 
   const key = process.env.AMPLITUDE_API_KEY;

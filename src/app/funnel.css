@@ -1,0 +1,411 @@
+/* ═══════════════════════════════════════════
+   Funnel shell + design preview chrome
+   ═══════════════════════════════════════════ */
+
+.funnel {
+  position: relative;
+  min-height: 100dvh;
+  background: var(--cream);
+  color: var(--charcoal);
+}
+
+/* ── Funnel promo toast (bottom floating) ── */
+.funnel-promo {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  z-index: 50;
+  width: min(440px, calc(100% - 32px));
+  max-width: 440px;
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.funnel-promo-inner {
+  pointer-events: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 18px 46px 18px 16px;
+  border: 1px solid rgba(41, 39, 36, .08);
+  border-radius: 20px;
+  background: #fff;
+  color: #292724;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, .6) inset,
+    0 2px 4px rgba(41, 39, 36, .04),
+    0 16px 40px rgba(41, 39, 36, .12);
+}
+
+.funnel-promo-inner::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #d46a42, color-mix(in srgb, #d46a42 35%, #faf9f6));
+  opacity: .9;
+}
+
+.funnel-promo-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-top: 2px;
+  border-radius: 14px;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, #d46a42 16%, #fff), color-mix(in srgb, #d46a42 6%, #faf9f6));
+  color: #d46a42;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, #d46a42 14%, transparent);
+}
+
+.funnel-promo-copy {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  padding-top: 1px;
+}
+
+.funnel-promo-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -.04em;
+  line-height: 1.4;
+  color: #292724;
+  word-break: keep-all;
+}
+
+.funnel-promo-title em {
+  color: #d46a42;
+  font-style: normal;
+  font-weight: 800;
+}
+
+.funnel-promo-sub {
+  margin: 0;
+  color: #5c5852;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.funnel-promo-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: #f4f2ee;
+  color: #8a857e;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.funnel-promo-close:hover {
+  color: #292724;
+  background: #ebe8e2;
+}
+
+.funnel-promo-close:active {
+  transform: scale(.96);
+}
+
+@media (min-width: 400px) {
+  .funnel-promo-title { font-size: 18px; }
+  .funnel-promo-sub { font-size: 13.5px; }
+  .funnel-promo-inner { padding: 20px 48px 20px 18px; gap: 15px; }
+}
+
+.funnel-bar {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 var(--gutter);
+}
+
+.funnel-bar .logo {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.funnel-bar .logo span { color: var(--orange); }
+
+.funnel-main {
+  width: min(720px, calc(100% - var(--gutter) * 2));
+  margin: 0 auto;
+  padding: 12px 0 88px;
+}
+
+.funnel-kicker {
+  margin: 0 0 12px;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .16em;
+}
+
+.funnel-main h1 {
+  margin: 0;
+  font-size: clamp(28px, 8vw, 42px);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1.18;
+}
+
+.funnel-lead {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.funnel-cats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.funnel-cat {
+  min-height: 108px;
+  display: grid;
+  justify-items: start;
+  align-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: #fff;
+  color: var(--charcoal);
+  text-align: left;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+  cursor: pointer;
+  transition: border-color .15s ease, transform .15s ease;
+}
+
+.funnel-cat:hover,
+.funnel-cat:focus-visible {
+  border-color: color-mix(in srgb, var(--charcoal) 28%, var(--border));
+  transform: translateY(-1px);
+}
+
+.funnel-cat-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #f1ece4;
+  color: var(--charcoal);
+}
+
+.funnel-loading { padding-top: 48px; }
+
+.funnel-loading-list {
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.funnel-loading-list li {
+  opacity: .28;
+  font-size: 15px;
+  font-weight: 650;
+  transition: opacity .25s ease;
+}
+
+.funnel-loading-list li.is-on { opacity: 1; }
+
+.funnel-back {
+  margin: 0 0 18px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.funnel-cards {
+  display: grid;
+  gap: 36px;
+  margin-top: 28px;
+}
+
+.funnel-card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.funnel-card-meta p {
+  margin: 0;
+  color: var(--orange);
+  font-weight: 750;
+  letter-spacing: .08em;
+}
+
+.funnel-card-meta span { color: var(--muted); }
+
+.funnel-card h3 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -.04em;
+}
+
+.funnel-card-blurb {
+  margin: 8px 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.funnel-card-preview {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.funnel-card-cta {
+  margin-top: 14px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--charcoal);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Design full preview shell */
+.design-shell {
+  min-height: 100dvh;
+  background: var(--cream);
+  padding-bottom: calc(72px + env(safe-area-inset-bottom));
+}
+
+@media (min-width: 640px) {
+  .design-shell {
+    padding-bottom: calc(120px + env(safe-area-inset-bottom));
+  }
+}
+
+.design-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 52px;
+  padding: 0 16px;
+  background: rgba(41, 39, 36, .94);
+  color: #fff;
+}
+
+.design-nav a { color: #fff; font-size: 14px; font-weight: 650; }
+.design-nav-brand {
+  overflow: hidden;
+  color: rgba(255,255,255,.72);
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.design-sample-note {
+  margin: 0;
+  padding: 10px 16px;
+  background: #efeae2;
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.design-sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(250, 249, 246, .96);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.design-sticky-inner {
+  width: min(560px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 8px;
+}
+
+.design-sticky p {
+  display: none;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -.02em;
+}
+
+.design-sticky span {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.design-sticky a {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: var(--charcoal);
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  .design-sticky p { display: block; }
+}
+
+@media (min-width: 640px) {
+  .funnel-main { padding-top: 28px; }
+  .funnel-cats { gap: 12px; }
+  .funnel-cat { min-height: 120px; padding: 18px; font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funnel-cat,
+  .funnel-loading-list li { transition: none; }
+}

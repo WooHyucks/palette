@@ -4,14 +4,16 @@ import { useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { trackEvent, trackEventAsync } from "@/lib/analytics";
-import { WORK_SAMPLES, type WorkSampleId } from "@/lib/site";
-
-type ServiceType = "new" | "renewal";
-
-function readService(value: string | null): ServiceType | undefined {
-  if (value === "new" || value === "renewal") return value;
-  return undefined;
-}
+import {
+  getFunnelCategory,
+  isFunnelCategoryId,
+  type FunnelCategoryId,
+} from "@/lib/designs/categories";
+import {
+  getDesignTemplate,
+  isDesignId,
+  type DesignId,
+} from "@/lib/designs/templates";
 
 const LIMITS = {
   contact: 80,
@@ -23,10 +25,6 @@ function clean(value: string, max: number) {
   return value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, "").trim().slice(0, max);
 }
 
-function readSample(value: string | null): WorkSampleId | undefined {
-  return WORK_SAMPLES.find((sample) => sample.id === value)?.id;
-}
-
 function readFrom(value: string | null) {
   if (!value || !/^[a-z0-9_]{1,40}$/.test(value)) return undefined;
   return value;
@@ -35,13 +33,19 @@ function readFrom(value: string | null) {
 export function InquiryForm() {
   const params = useSearchParams();
   const from = readFrom(params.get("from"));
-  const sampleId = readSample(params.get("sample"));
-  const serviceParam = params.get("service");
-  const sample = WORK_SAMPLES.find((item) => item.id === sampleId);
-  const [service, setService] = useState<ServiceType>(readService(serviceParam) ?? "new");
+  const designParam = params.get("design");
+  const categoryParam = params.get("category");
+  const designId: DesignId | undefined =
+    designParam && isDesignId(designParam) ? designParam : undefined;
+  const categoryId: FunnelCategoryId | undefined =
+    categoryParam && isFunnelCategoryId(categoryParam) ? categoryParam : undefined;
+  const design = designId ? getDesignTemplate(designId) : undefined;
+  const category = categoryId ? getFunnelCategory(categoryId) : undefined;
+
   const [contact, setContact] = useState("");
   const [business, setBusiness] = useState("");
   const [brief, setBrief] = useState("");
+  const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState("");
   const [pending, setPending] = useState(false);
@@ -53,10 +57,10 @@ export function InquiryForm() {
   useEffect(() => {
     trackEvent("inquiry_view", {
       cta_location: from,
-      sample_id: sampleId,
-      service_type: readService(serviceParam),
+      design_id: designId,
+      category_id: categoryId,
     });
-  }, [from, sampleId, serviceParam]);
+  }, [from, designId, categoryId]);
 
   useEffect(() => {
     if (done) successRef.current?.focus();
@@ -67,8 +71,8 @@ export function InquiryForm() {
     started.current = true;
     trackEvent("inquiry_start", {
       cta_location: from,
-      sample_id: sampleId,
-      service_type: service,
+      design_id: designId,
+      category_id: categoryId,
     });
   }
 
@@ -81,8 +85,7 @@ export function InquiryForm() {
     const nextBrief = clean(brief, LIMITS.page_brief);
     const nextErrors: Record<string, string> = {};
     if (nextContact.length < 4) nextErrors.contact = "연락받으실 곳을 입력해 주세요.";
-    if (nextBusiness.length < 2) nextErrors.business = "어떤 가게인지 적어 주세요.";
-    if (nextBrief.length < 4) nextErrors.page_brief = "만들고 싶은 페이지를 간단히 적어 주세요.";
+    if (!consent) nextErrors.consent = "개인정보 수집·이용에 동의해 주세요.";
     setErrors(nextErrors);
     setFormError("");
     if (Object.keys(nextErrors).length > 0) return;
@@ -90,11 +93,12 @@ export function InquiryForm() {
     setPending(true);
     const ok = await trackEventAsync("inquiry_submit", {
       contact: nextContact,
-      business: nextBusiness,
-      page_brief: nextBrief,
-      service_type: service,
-      sample_id: sampleId,
+      business: nextBusiness || undefined,
+      page_brief: nextBrief || undefined,
+      design_id: designId,
+      category_id: categoryId,
       cta_location: from,
+      consent: true,
     });
     setPending(false);
     if (!ok) {
@@ -123,125 +127,106 @@ export function InquiryForm() {
     <>
       <p className="studio-kicker">INQUIRY</p>
       <h1>
-        어떤 페이지를
+        이 디자인으로
         <br />
-        만들어 드릴까요?
+        제작 문의하기
       </h1>
       <p className="ask-lead">
-        연락처, 가게, 대략적인 내용만 남겨 주세요.
-        <br />
-        확인하는 대로 연락드립니다.
+        연락처만 남겨 주시면 확인 후 연락드립니다.
       </p>
       <form className="ask-form" onSubmit={onSubmit} noValidate>
-      {sample ? (
-        <p className="ask-context">{sample.brand} 샘플을 보고 문의하시는군요.</p>
-      ) : null}
+        {(design || category) && (
+          <div className="ask-context">
+            {design ? (
+              <p>
+                선택 디자인 · <strong>{design.name}</strong> ({design.brand})
+              </p>
+            ) : null}
+            {category ? <p>선택 업종 · {category.label}</p> : null}
+          </div>
+        )}
 
-      <fieldset className="ask-choice">
-        <legend>어떤 작업인가요?</legend>
+        <div className="ask-field">
+          <label htmlFor={`${formId}-contact`}>연락처 *</label>
+          <input
+            id={`${formId}-contact`}
+            name="contact"
+            type="text"
+            inputMode="text"
+            autoComplete="tel"
+            maxLength={LIMITS.contact}
+            placeholder="전화번호, 카카오톡, 인스타그램"
+            value={contact}
+            aria-invalid={Boolean(errors.contact)}
+            aria-describedby={
+              errors.contact ? `${formId}-contact-error` : `${formId}-contact-hint`
+            }
+            onChange={(event) => setContact(event.target.value)}
+            onFocus={markStart}
+            required
+          />
+          <small id={`${formId}-contact-hint`}>답장을 받으실 곳이면 충분해요.</small>
+          {errors.contact ? (
+            <p className="ask-error" id={`${formId}-contact-error`}>
+              {errors.contact}
+            </p>
+          ) : null}
+        </div>
+
+        <div className="ask-field">
+          <label htmlFor={`${formId}-business`}>가게 이름 (선택)</label>
+          <input
+            id={`${formId}-business`}
+            name="business"
+            type="text"
+            maxLength={LIMITS.business}
+            placeholder="성수 카페, 필라테스 스튜디오"
+            value={business}
+            onChange={(event) => setBusiness(event.target.value)}
+            onFocus={markStart}
+          />
+        </div>
+
+        <div className="ask-field">
+          <label htmlFor={`${formId}-brief`}>문의 내용 (선택)</label>
+          <textarea
+            id={`${formId}-brief`}
+            name="page_brief"
+            maxLength={LIMITS.page_brief}
+            placeholder="원하시는 수정이나 참고 사항을 적어 주세요."
+            value={brief}
+            onChange={(event) => setBrief(event.target.value)}
+            onFocus={markStart}
+          />
+        </div>
+
+        <label className="ask-consent" htmlFor={`${formId}-consent`}>
+          <input
+            id={`${formId}-consent`}
+            type="checkbox"
+            checked={consent}
+            onChange={(event) => setConsent(event.target.checked)}
+            onFocus={markStart}
+          />
+          <span>문의 응대를 위한 개인정보 수집·이용에 동의합니다.</span>
+        </label>
+        {errors.consent ? <p className="ask-error">{errors.consent}</p> : null}
+
+        {formError ? (
+          <p className="ask-error" role="alert">
+            {formError}
+          </p>
+        ) : null}
+
         <button
-          type="button"
-          aria-pressed={service === "new"}
-          onClick={() => setService("new")}
+          className="studio-btn studio-btn--primary ask-submit"
+          type="submit"
+          disabled={pending}
         >
-          새로 만들기
+          {pending ? "보내는 중" : "문의 보내기"}
         </button>
-        <button
-          type="button"
-          aria-pressed={service === "renewal"}
-          onClick={() => setService("renewal")}
-        >
-          리뉴얼
-        </button>
-        <small>기본형 원페이지는 30만 원입니다.</small>
-      </fieldset>
-
-      <div className="ask-field">
-        <label htmlFor={`${formId}-contact`}>연락처</label>
-        <input
-          id={`${formId}-contact`}
-          name="contact"
-          type="text"
-          inputMode="text"
-          autoComplete="tel"
-          maxLength={LIMITS.contact}
-          placeholder="전화번호, 카카오톡, 인스타그램"
-          value={contact}
-          aria-invalid={Boolean(errors.contact)}
-          aria-describedby={errors.contact ? `${formId}-contact-error` : `${formId}-contact-hint`}
-          onChange={(event) => setContact(event.target.value)}
-          onFocus={markStart}
-          required
-        />
-        <small id={`${formId}-contact-hint`}>답장을 받으실 곳이면 충분해요.</small>
-        {errors.contact ? (
-          <p className="ask-error" id={`${formId}-contact-error`}>
-            {errors.contact}
-          </p>
-        ) : null}
-      </div>
-
-      <div className="ask-field">
-        <label htmlFor={`${formId}-business`}>어떤 가게인가요?</label>
-        <input
-          id={`${formId}-business`}
-          name="business"
-          type="text"
-          maxLength={LIMITS.business}
-          placeholder="성수 카페, 필라테스 스튜디오"
-          value={business}
-          aria-invalid={Boolean(errors.business)}
-          aria-describedby={errors.business ? `${formId}-business-error` : undefined}
-          onChange={(event) => setBusiness(event.target.value)}
-          onFocus={markStart}
-          required
-        />
-        {errors.business ? (
-          <p className="ask-error" id={`${formId}-business-error`}>
-            {errors.business}
-          </p>
-        ) : null}
-      </div>
-
-      <div className="ask-field">
-        <label htmlFor={`${formId}-brief`}>만들고 싶은 페이지</label>
-        <textarea
-          id={`${formId}-brief`}
-          name="page_brief"
-          maxLength={LIMITS.page_brief}
-          placeholder="메뉴와 위치가 있는 원페이지, 또는 지금 홈페이지를 더 깔끔하게"
-          value={brief}
-          aria-invalid={Boolean(errors.page_brief)}
-          aria-describedby={errors.page_brief ? `${formId}-brief-error` : `${formId}-brief-hint`}
-          onChange={(event) => setBrief(event.target.value)}
-          onFocus={markStart}
-          required
-        />
-        <small id={`${formId}-brief-hint`}>
-          들어갈 내용이나 참고한 샘플이 있으면 적어 주세요.
-        </small>
-        {errors.page_brief ? (
-          <p className="ask-error" id={`${formId}-brief-error`}>
-            {errors.page_brief}
-          </p>
-        ) : null}
-      </div>
-
-      {formError ? (
-        <p className="ask-error" role="alert">
-          {formError}
-        </p>
-      ) : null}
-
-      <button
-        className="studio-btn studio-btn--primary ask-submit"
-        type="submit"
-        disabled={pending}
-      >
-        {pending ? "보내는 중" : "문의 보내기"}
-      </button>
-      <p className="ask-note">입력하신 내용은 상담을 위해서만 확인합니다.</p>
-    </form>
+        <p className="ask-note">기본형 원페이지 제작은 30만 원입니다.</p>
+      </form>
     </>
   );
 }
