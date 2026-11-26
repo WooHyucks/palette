@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   Briefcase,
   Coffee,
@@ -20,7 +21,8 @@ import {
   isFunnelCategoryId,
   type FunnelCategoryId,
 } from "@/lib/designs/categories";
-import { getRecommendations } from "@/lib/designs/recommend";
+import { getInquiryHref, getRecommendations } from "@/lib/designs/recommend";
+import { PRICE_SHORT } from "@/lib/site";
 
 type Step = "pick" | "loading" | "results";
 
@@ -160,27 +162,46 @@ export function FunnelApp() {
       ) : null}
 
       {step === "results" && categoryId ? (
-        <main className="funnel-main funnel-results">
-          <button type="button" className="funnel-back" onClick={reset}>
-            ← 업종 다시 선택
-          </button>
-          <p className="funnel-kicker">FOR {category?.label ?? "사장님"}</p>
-          <h1>
-            이런 디자인을
-            <br />
-            추천드려요.
-          </h1>
-          <p className="funnel-lead">마음에 드는 시안을 눌러 전체 화면으로 확인해 보세요.</p>
-          <div className="funnel-cards">
-            {recommendations.map((design) => (
-              <DesignPreviewCard
-                key={design.id}
-                designId={design.id}
-                categoryId={categoryId}
-              />
-            ))}
+        <>
+          <main className="funnel-main funnel-results">
+            <button type="button" className="funnel-back" onClick={reset}>
+              ← 업종 다시 선택
+            </button>
+            <p className="funnel-kicker">FOR {category?.label ?? "사장님"}</p>
+            <h1>
+              이런 디자인을
+              <br />
+              추천드려요.
+            </h1>
+            <p className="funnel-lead">마음에 드는 시안을 눌러 전체 화면으로 확인해 보세요.</p>
+            <div className="funnel-cards">
+              {recommendations.map((design) => (
+                <DesignPreviewCard
+                  key={design.id}
+                  designId={design.id}
+                  categoryId={categoryId}
+                />
+              ))}
+            </div>
+          </main>
+          <div className="funnel-results-sticky">
+            <Link
+              href={getInquiryHref({
+                categoryId,
+                from: "funnel_results",
+              })}
+              className="funnel-results-cta"
+              onClick={() =>
+                trackEvent("inquiry_click", {
+                  category_id: categoryId,
+                  cta_location: "funnel_results",
+                })
+              }
+            >
+              제작 문의하기 · {PRICE_SHORT}
+            </Link>
           </div>
-        </main>
+        </>
       ) : null}
     </div>
   );
