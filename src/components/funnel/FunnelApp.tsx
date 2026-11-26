@@ -67,12 +67,12 @@ export function FunnelApp() {
     if (step !== "loading" || !categoryId) return;
     trackEvent("funnel_loading_view", { category_id: categoryId });
     const timers = [
-      window.setTimeout(() => setLoadingIndex(1), 450),
-      window.setTimeout(() => setLoadingIndex(2), 900),
+      window.setTimeout(() => setLoadingIndex(1), 1100),
+      window.setTimeout(() => setLoadingIndex(2), 2300),
       window.setTimeout(() => {
         setStep("results");
         trackEvent("funnel_results_view", { category_id: categoryId });
-      }, 1400),
+      }, 3600),
     ];
     return () => timers.forEach((id) => window.clearTimeout(id));
   }, [step, categoryId]);
